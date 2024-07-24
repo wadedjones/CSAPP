@@ -33,8 +33,28 @@ int main(void) {
   // show_bytes(valp, 1);
   // show_bytes(valp, 2);
   // show_bytes(valp, 3);
-  char *s = "abcdef";
-  show_bytes((byte_pointer)s, strlen(s) + 1);
+  // char *s = "abcdef";
+  // show_bytes((byte_pointer)s, strlen(s) + 1);
+
+  // short x = 12345;
+  // short mx = -x;
+  //
+  // show_bytes((byte_pointer)&x, sizeof(short));
+  // show_bytes((byte_pointer)&mx, sizeof(short));
+
+  short sx = -12345;
+  unsigned short usx = sx;
+  int x = sx;
+  unsigned ux = usx;
+
+  printf("sx  = %d:\t", sx);
+  show_bytes((byte_pointer)&sx, sizeof(short));
+  printf("usx = %u:\t", usx);
+  show_bytes((byte_pointer)&usx, sizeof(unsigned short));
+  printf("x   = %d:\t", x);
+  show_bytes((byte_pointer)&x, sizeof(int));
+  printf("ux  = %u:\t", ux);
+  show_bytes((byte_pointer)&ux, sizeof(unsigned));
 
   return 0;
 }
