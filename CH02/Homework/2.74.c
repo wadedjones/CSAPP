@@ -22,8 +22,8 @@ int tsub_ok(int x, int y) {
 }
 
 int main(void) {
-  int x = 0x80000000;
-  int y = 0x7FFFFFFF;
+  int x = 0x1234;
+  int y = 0x80000000;
   int z = tsub_ok(x, y);
 
   printf("z: %X\n", z);
