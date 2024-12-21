@@ -1,0 +1,18 @@
+
+fact_asm.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <fact>:
+   0:	48 83 ff 01          	cmpq   $0x1,%rdi
+   4:	7f 06                	jg     c <fact+0xc>
+   6:	b8 01 00 00 00       	movl   $0x1,%eax
+   b:	c3                   	retq
+   c:	53                   	pushq  %rbx
+   d:	48 89 fb             	movq   %rdi,%rbx
+  10:	48 8d 7f ff          	leaq   -0x1(%rdi),%rdi
+  14:	e8 00 00 00 00       	callq  19 <fact+0x19>
+  19:	48 0f af c3          	imulq  %rbx,%rax
+  1d:	5b                   	popq   %rbx
+  1e:	c3                   	retq

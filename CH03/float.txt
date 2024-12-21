@@ -1,0 +1,19 @@
+
+float.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <fcvt>:
+   0:	f3 0f 10 06          	movss  (%rsi),%xmm0
+   4:	48 8b 01             	movq   (%rcx),%rax
+   7:	f2 4c 0f 2c 02       	cvttsd2si (%rdx),%r8
+   c:	4c 89 01             	movq   %r8,(%rcx)
+   f:	66 0f ef c9          	pxor   %xmm1,%xmm1
+  13:	f3 0f 2a cf          	cvtsi2ssl %edi,%xmm1
+  17:	f3 0f 11 0e          	movss  %xmm1,(%rsi)
+  1b:	66 0f ef c9          	pxor   %xmm1,%xmm1
+  1f:	f2 48 0f 2a c8       	cvtsi2sdq %rax,%xmm1
+  24:	f2 0f 11 0a          	movsd  %xmm1,(%rdx)
+  28:	f3 0f 5a c0          	cvtss2sd %xmm0,%xmm0
+  2c:	c3                   	retq
