@@ -29,6 +29,7 @@ double funct3(int *ap, double b, long c, float *dp) {
   if (a < b) {
     return c * d;
   }
+  printf("%d", a);
   // *dp += *dp
   // mov and convert c into xmm0
   // *dp += c
