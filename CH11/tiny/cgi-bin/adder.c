@@ -11,26 +11,18 @@ void slice(const char *str, char *result, size_t start) {
 int main(void) {
 	char *buf;
 	char *p;
-	char arg1[MAXLINE];
-	char arg2[MAXLINE];
-	char arg1slice[MAXLINE];
-	char arg2slice[MAXLINE];
 	char content[MAXLINE];
 	int n1 = 0;
 	int n2 = 0;
 
 	/* extract the two arguments */
 	if ((buf = getenv("QUERY_STRING")) != NULL) {
-		printf("QUERY_STRING: %s\n", buf);
 		p = strchr(buf, '&');
-		*p = '\0';
-		strcpy(arg1, buf);
-		/* num1=123 */
-		slice(arg1, arg1slice, 5);
-		strcpy(arg2, p + 1);
-		slice(arg2, arg2slice, 5);
-		n1 = atoi(arg1slice);
-		n2 = atoi(arg2slice);
+		*p++ = '\0';
+		buf = strchr(buf, '=');
+		p = strchr(p, '=');
+		n1 = atoi(buf + 1);
+		n2 = atoi(p + 1);
 	}
 
 	/* make the response body */

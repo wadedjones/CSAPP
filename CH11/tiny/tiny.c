@@ -272,7 +272,9 @@ void get_filetype(char *filename, char *filetype) {
         strcpy(filetype, "image/png");
     } else if (strstr(filename, ".jpg")) {
         strcpy(filetype, "image/jpeg");
-    } else {
+    } else if (strstr(filename, ".mpg")) {
+		strcpy(filetype, "video/mpeg");
+	} else {
         strcpy(filetype, "text/plain");
     }
 }
@@ -299,7 +301,6 @@ void serve_dynamic(int fd, char *filename, char *cgiargs) {
 		dup2(log, STDOUT_FILENO);
         dup2(fd, STDOUT_FILENO);
         execve(filename, emptylist, environ);
-
     }
     /* wait(NULL); */
 }
